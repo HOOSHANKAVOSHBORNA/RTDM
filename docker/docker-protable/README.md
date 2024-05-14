@@ -64,3 +64,9 @@
     ```
     sudo docker container prune 
     ```
+
+> in docker volume mounting it is possible that 
+> does not work correctly and you lose your data!
+> because default mode in docker volume plugging 
+> is `:mrw` that contains `mknod` that cause unauthorized not accessible,
+> so you should specify `:rw` to remove `mknod` mode.
