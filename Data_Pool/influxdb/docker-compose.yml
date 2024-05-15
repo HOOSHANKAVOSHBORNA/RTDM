@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  influxdb:
+    image: 192.168.1.103:5000/influxdb:latest
+    container_name: influxdb2
+    ports:
+      - "9087:8086"
+    volumes:
+      - ./influxdb2:/var/lib/influxdb2:rw
+
+
+  telegraf:
+    image: telegraf:latest
+    container_name: telegraf
+#    links:
+#      - influxdb
+    volumes:
+      #  Sync timezone with host
+      - /etc/localtime:/etc/localtime:ro
+      #  Map Telegraf configuration file
+      - /mnt/influxdb/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+      #  Map /tmp to permanent storage  (this includes /tmp/metrics.out)
+      - /mnt/influxdb:/tmp:rw
+    restart: unless-stopped
+    depends_on:
+      - influxdb
