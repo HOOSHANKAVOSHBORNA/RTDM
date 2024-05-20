@@ -1,0 +1,1 @@
+registry_url = 'localhost:5000'

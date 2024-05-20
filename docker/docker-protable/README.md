@@ -7,7 +7,8 @@
     ```json
     {
         "experimental": false,
-        "insecure-registries": ["192.168.1.103:5000"]
+        "insecure-registries": ["192.168.1.103:5000"],
+        "registry-mirrors": ["http://192.168.1.103:5000"]
     }
     ```
 4. run in terminal:
@@ -25,6 +26,8 @@
 
 
 ## Docs
+
+- [docker `registry` image api docs](https://distribution.github.io/distribution/spec/api/) 
 
 - pull registry image from `Dockerub`
     ```bash
