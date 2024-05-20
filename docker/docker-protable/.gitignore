@@ -1,1 +1,4 @@
 /regvol
+/scripts/docker-images.txt
+/scripts/myenv
+*pycache*

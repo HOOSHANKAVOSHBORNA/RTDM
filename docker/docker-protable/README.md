@@ -27,6 +27,8 @@
 
 ## Docs
 
+- [docker `registry` image api docs](https://distribution.github.io/distribution/spec/api/) 
+
 - pull registry image from `Dockerub`
     ```bash
     sudo docker pull registry
