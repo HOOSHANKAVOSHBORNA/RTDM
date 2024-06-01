@@ -2,14 +2,9 @@
 
 # Kafka Cluster
 - 3 kafka cluster
-    - bootstrap servers: kafka1:19092, kafka2:19093, kafka3:19094
-    - dependency of each cluster is zookeeper
-    - image source: confluentinc
+    - bootstrap servers: kafka-1:9094, kafka-2:9095, kafka-3:9096
+    - image source: [bitnami](https://hub.docker.com/r/bitnami/kafka)
 
-- Run this before docker up:
-```bash
-sudo chown -R 1001 kafka-persistence  
-```
 # Kafka-UI
 - kafka clusters name: local
 - port: 8080
