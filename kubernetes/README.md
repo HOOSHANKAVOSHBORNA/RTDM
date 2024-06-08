@@ -19,7 +19,49 @@
 
 - install minikube
 
+- see all thing in minikube
+
+  ```shell
+  kubectl get all
+  ```
+
 ---
+
+## Docs
+
+### [Spark on Kuber](https://spark.apache.org/docs/latest/running-on-kubernetes.html)
+
+- install helm
+  - use from the official shell file
+- add bitnami repo
+  ```shell
+  helm repo add <repo-name> https://charts.bitnami.com/bitnami
+  ```
+- install spark
+  ```shell
+  helm install <release-name> <repo-name>/spark
+  ```
+  - this command deploys spark on kuber
+- increasing
+  ```shell
+  helm upgrade firstest bitnami-repo/spark --set worker.replicaCount=5
+  ```
+- port forwarding
+  ```shell
+  kubectl port-forward --address 0.0.0.0 pod/firstest-spark-master-0 30010:8080
+  ```
+- running application on spark
+  - run below command on master
+  ```shell
+  ./bin/spark-submit \
+        --class org.apache.spark.examples.SparkPi \
+        --master spark://spark-release-master-0.spark-release-headless.default.svc.cluster.local:7077   \
+        --num-executors 3 \
+        --driver-memory 512m \
+        --executor-memory 512m \
+        --executor-cores 1 \
+        ./examples/src/main/python/pi.py 10
+  ```
 
 ## Courses
 
@@ -347,11 +389,3 @@
 - End
 
 ---
-
-### How to run Spark on Kubernetes like a pro (youtube)
-
-- spark deployment modes
-  - hadoop yarn
-  - apache mesos
-  - kubernetes
-  - standalone
