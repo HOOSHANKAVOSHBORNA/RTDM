@@ -1,2 +1,4 @@
 /influxdb2
 *.swp
+localtime
+tmp

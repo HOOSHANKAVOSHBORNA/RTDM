@@ -17,11 +17,11 @@ services:
 #      - influxdb
     volumes:
       #  Sync timezone with host
-      - /etc/localtime:/etc/localtime:ro
+      # - ./localtime:/etc/localtime:rw
       #  Map Telegraf configuration file
-      - /mnt/influxdb/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+      - ./telegraf.conf:/etc/telegraf/telegraf.conf:rw
       #  Map /tmp to permanent storage  (this includes /tmp/metrics.out)
-      - /mnt/influxdb:/tmp:rw
+      - ./tmp:/tmp:rw
     restart: unless-stopped
     depends_on:
       - influxdb
