@@ -15,6 +15,7 @@ services:
     container_name: telegraf
 #    links:
 #      - influxdb
+    network_mode: "host"
     volumes:
       #  Sync timezone with host
       # - ./localtime:/etc/localtime:rw
